@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <main className="mx-auto  flex w-fit flex-col gap-2 text-nowrap bg-white">
+    <main className="bg-green mx-auto  mt-10 flex grid-rows-5  flex-col flex-wrap gap-2 text-nowrap bg-white">
       <div className="h-10 w-10 border-2 border-blue-700 bg-background" />
       <h1>background </h1>
 
