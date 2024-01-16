@@ -25,6 +25,7 @@ export default function Home() {
   return (
     <>
       <MaxWidthWrapper>
+        {/* hero section */}
         <div className=" mx-auto flex max-w-3xl flex-col py-20 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-secondary-foreground sm:text-6xl">
             <span className="text-primary">Dress to Impress</span> - Your
@@ -36,8 +37,8 @@ export default function Home() {
             elegance. Your fashion evolution begins here
           </p>
         </div>
-
-        <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+        {/* cta section */}
+        <div className=" mb-6 flex flex-col justify-center gap-4 sm:flex-row">
           <Link href="./products" className={buttonVariants()}>
             Browse Trending
           </Link>
@@ -46,6 +47,7 @@ export default function Home() {
         </div>
       </MaxWidthWrapper>
       <section className="border-t border-border bg-background">
+        {/* service perks */}
         <MaxWidthWrapper className="py-20">
           <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
             {perks.map((perk) => (

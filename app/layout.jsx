@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import NavBar from "@/components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
     <html className="" lang="en">
       <body className={cn("relative h-full antialiased", inter.className)}>
         <main className="relative flex min-h-screen flex-1 flex-grow flex-col">
+          <NavBar />
           {/* <div className='flex-grow flex-1'>{children}</div> */}
           {/*if footer wa added below uncomment*/}
           {children}

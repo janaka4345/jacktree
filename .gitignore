@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/public
+/app/colors
 /.pnp
 .pnp.js
 .yarn/install-state.gz
