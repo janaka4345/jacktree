@@ -3,23 +3,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ShoppingCart } from "lucide-react";
-import { useState } from "react";
 import { ScrollArea } from "./ui/scroll-area";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 export default function Cart() {
 
   const items =['short','shirt','frock']
-  const itemCount = 5
+  const itemCount = items.length
   const cartTotal = 100
 
   const fee = 1
@@ -47,8 +44,10 @@ export default function Cart() {
           <>
             <div className='flex w-full flex-col pr-6'>
               <ScrollArea>
-                {items.map(({ product }) => (
-                  product
+                {items.map(( product,i ) => (
+                  <h1 key={i}>
+                   {product}
+                  </h1> 
                   // <CartItem
                   //   product={product}
                   //   key={product.id}
