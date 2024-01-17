@@ -57,15 +57,7 @@ export default function NavBar() {
                     />
                     </>
                   )}
-                  {/* {user ? null : (
-                    <div className='flex lg:ml-6'>
-                      <span
-                        className='h-6 w-px bg-border'
-                        aria-hidden='true'
-                      />
-                    </div> 
-                  )}*/}
-
+                 
                   <div className='ml-4 flow-root lg:ml-6'>
                     {/* <Cart /> */} cart
                   </div>
