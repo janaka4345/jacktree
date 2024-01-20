@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AuthCredValidator } from "@/lib/validators/accCredValidators";
+import { toast } from "sonner";
 
 export default function Page() {
   const {
@@ -20,6 +21,8 @@ export default function Page() {
 
   const onSubmit = ({ email, password }) => {
     //send data to server
+    // console.log(e);
+    // toast("Successfully Signed Up");
   };
 
   return (
@@ -53,10 +56,11 @@ export default function Page() {
                   <Input
                     {...register("email")}
                     className={cn("focus-visible:ring-blue-500", {
-                      "focus-visible:ring-red-500": errors.email,
+                      "focus-visible:ring-error": errors.email,
                     })}
                     placeholder="you@example.com"
                   />
+                  {/* {errors.email && toast(`Error:${errors.email.message}`)} */}
                 </div>
 
                 <div className="grid gap-1 py-2">
@@ -64,7 +68,7 @@ export default function Page() {
                   <Input
                     {...register("password")}
                     className={cn("focus-visible:ring-blue-500", {
-                      "focus-visible:ring-red-500": errors.password,
+                      "focus-visible:ring-error": errors.password,
                     })}
                     type="password"
                     placeholder="Password"
