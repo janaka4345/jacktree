@@ -27,8 +27,9 @@ export const authRouter = router({
             })
             // input user to database
             if (data) {
-                console.log('usrer exist');
-                throw new TRPCError({ code: 'CONFLICT', message: 'user exist' })
+                //TODO handle error
+                // console.log('usrer exist');
+                // throw new TRPCError({ code: 'CONFLICT', message: 'user exist' })
             }
             const user = await prisma.user.create({ data: { email, password } })
             return user
