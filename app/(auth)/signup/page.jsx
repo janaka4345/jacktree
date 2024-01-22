@@ -10,16 +10,20 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AuthCredValidator } from "@/lib/validators/accCredValidators";
+import { toast } from "sonner";
+import { trpc } from "@/trpc/client";
 
 export default function Page() {
+  const createUser = trpc.authRouter.createUser.useMutation();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(AuthCredValidator) });
 
-  const onSubmit = ({ email, password }) => {
+  const onSubmit = async ({ email, password }) => {
     //send data to server
+    createUser.mutate({ email, password });
   };
 
   return (
@@ -53,10 +57,11 @@ export default function Page() {
                   <Input
                     {...register("email")}
                     className={cn("focus-visible:ring-blue-500", {
-                      "focus-visible:ring-red-500": errors.email,
+                      "focus-visible:ring-error": errors.email,
                     })}
                     placeholder="you@example.com"
                   />
+                  {/* {errors.email && toast(`Error:${errors.email.message}`)} */}
                 </div>
 
                 <div className="grid gap-1 py-2">
@@ -64,7 +69,7 @@ export default function Page() {
                   <Input
                     {...register("password")}
                     className={cn("focus-visible:ring-blue-500", {
-                      "focus-visible:ring-red-500": errors.password,
+                      "focus-visible:ring-error": errors.password,
                     })}
                     type="password"
                     placeholder="Password"
@@ -74,6 +79,7 @@ export default function Page() {
                 <Button>Sign up</Button>
               </div>
             </form>
+            <pre>{JSON.stringify(createUser, null, 2)}</pre>
           </div>
         </div>
       </div>
