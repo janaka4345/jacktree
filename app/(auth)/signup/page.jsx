@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AuthCredValidator } from "@/lib/validators/accCredValidators";
 import { toast } from "sonner";
+import { trpc } from "@/trpc/client";
 
 export default function Page() {
   const {
@@ -24,6 +25,8 @@ export default function Page() {
     // console.log(e);
     // toast("Successfully Signed Up");
   };
+
+  const data = trpc.authRouter.userList.useQuery();
 
   return (
     <MaxWidthWrapper>
@@ -78,6 +81,7 @@ export default function Page() {
                 <Button>Sign up</Button>
               </div>
             </form>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
           </div>
         </div>
       </div>

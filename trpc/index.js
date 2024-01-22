@@ -1,3 +1,4 @@
+import { authRouter } from './authRouter';
 import { publicProcedure, router } from './trpc';
 
 export const appRouter = router({
@@ -9,6 +10,7 @@ export const appRouter = router({
 
       return [10, 20, 30];
     }),
+  authRouter
 });
 
 // export type AppRouter = typeof appRouter;
