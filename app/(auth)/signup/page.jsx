@@ -25,11 +25,15 @@ export default function Page() {
     //send data to server
     createUser.mutate({ email, password });
   };
+  //handling error
+  if (createUser.isError) {
+    toast("error");
+  }
 
   return (
     <MaxWidthWrapper>
       <div className="container relative flex flex-col items-center justify-center pt-20 lg:px-0">
-        <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+        <div className="mx-auto flex w-full max-w-[500px] flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
             <Icons.logo className="h-20 w-20" />
             <h1 className="text-2xl font-semibold tracking-tight">
@@ -61,7 +65,9 @@ export default function Page() {
                     })}
                     placeholder="you@example.com"
                   />
-                  {/* {errors.email && toast(`Error:${errors.email.message}`)} */}
+                  {/* ERROR message handles */}
+                  {errors.email && toast(`Error:${errors.email.message}`)}
+                  {createUser.isSuccess && toast(`success`)}
                 </div>
 
                 <div className="grid gap-1 py-2">
@@ -79,7 +85,7 @@ export default function Page() {
                 <Button>Sign up</Button>
               </div>
             </form>
-            <pre>{JSON.stringify(createUser, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(createUser, null, 2)}</pre> */}
           </div>
         </div>
       </div>
