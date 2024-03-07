@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Providers from "@/components/Provider";
 import { cn } from "@/lib/utils";
 import { getServerSession } from "next-auth";
-import { SessionProvider } from "@/components/custom/SessionProvider";
+import SessionProvider from "@/components/custom/SessionProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
