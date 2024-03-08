@@ -37,6 +37,3 @@
 //     matcher: ["/"]
 // }
 //TODO middleware isnot workiing ? is it prisma not on edge? check
-export default p(){
-
-}
