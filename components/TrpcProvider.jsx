@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 
-import { trpc } from "./trpcClient";
+import { trpc } from "@/utils/trpcClient";
 
 export default function TrpcProvider({ children }) {
   const [queryClient] = useState(() => new QueryClient({}));

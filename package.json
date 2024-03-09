@@ -26,6 +26,7 @@
     "@trpc/next": "^11.0.0-next-beta.221",
     "@trpc/react-query": "^11.0.0-next-beta.221",
     "@trpc/server": "^11.0.0-next-beta.221",
+    "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.309.0",
