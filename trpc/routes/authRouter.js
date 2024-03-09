@@ -1,6 +1,6 @@
 import { AuthCredValidator } from "@/lib/validators/accCredValidators";
-import { publicProcedure, router } from "./trpc";
-import prisma from "../lib/prismaClient";
+import { publicProcedure, router } from "../trpc";
+import prisma from "../../lib/prismaClient";
 import { TRPCError } from "@trpc/server";
 
 export const authRouter = router({

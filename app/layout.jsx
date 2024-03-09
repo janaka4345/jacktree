@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import { Toaster } from "@/components/ui/sonner";
-import Providers from "@/components/Provider";
+import TrpcProvider from "@/components/TrpcProvider";
 import { cn } from "@/lib/utils";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/custom/SessionProvider";
@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
     <html className="" lang="en">
       <body className={cn("relative h-full antialiased", inter.className)}>
         <SessionProvider session={session}>
-          <Providers>
+          <TrpcProvider>
             <main className="relative flex min-h-screen flex-1 flex-grow flex-col">
               <NavBar />
               {/* <div className='flex-grow flex-1'>{children}</div> */}
@@ -28,7 +28,7 @@ export default async function RootLayout({ children }) {
               {children}
             </main>
             <Toaster />
-          </Providers>
+          </TrpcProvider>
         </SessionProvider>
       </body>
     </html>
